@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>coderX web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main d-flex flex-column justify-content-between">
+    <nav class="navbar navbar-expand-lg custom-navbar navbar-dark shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand me-3" href="#">
+                <h1 class="logo">coderX</h1>
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse  justify-content-lg-center" id="navbarNav">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item"><a class="nav-link active" href="#">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">ABOUT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="skills.html">SKILLS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="myworks.html">MY WORKS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contactus.html">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    
+    
+
+    <div class="container text-white mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="info-box p-4 rounded-4 shadow">
+                    <h3>What's up, I'm <span class="highlight-name">Mohamad Kamardin</span> (<span class="highlight-alias">coderX</span>).</h3>
+                    <h1><span class="highlight-letter">W</span>EB <span class="highlight-letter">D</span>ESIGNER</h1>
+                    <h3><span class="highlight-role">Hacker</span> and <span class="highlight-role">Developer</span> from <span class="highlight-place">SUZA, TZ</span>.<br>
+                        I create <span class="highlight-purpose">websites</span> to help <span class="highlight-purpose">businesses</span> do better online.</h3>
+                    <a href="#" class="btn btn-success mt-3">Hire Me</a>
+                </div>
+                
+            </div>
+            
+            <div class="col-md-6 text-center">
+                <div class="oval-frame mx-auto">
+                    <img src="pic/sultan.png" class="img-fluid sultan" alt="Sultan Image">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="text-center mt-5">
+        <h2 class="animated-intro">
+          <ion-icon name="code-slash-outline"></ion-icon>
+          <span id="dynamic-text"></span>
+        </h2>
+      </div>
+
+    <div class="icons d-flex justify-content-center my-4">
+        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+
+const roles = [
+    "💻 Passionate Programmer",
+    "🌐 Web Developer",
+    "📱 Mobile App Builder",
+    "🎨 UI Designer",
+    "🧠 Tech Problem Solver",
+    "🚀 Full-Stack Developer"
+  ];
+  
+  let i = 0;
+  let j = 0;
+  let currentText = '';
+  let isDeleting = false;
+
+  function type() {
+    const element = document.getElementById("dynamic-text");
+    const fullText = roles[i];
+
+    if (isDeleting) {
+      currentText = fullText.substring(0, currentText.length - 1);
+    } else {
+      currentText = fullText.substring(0, currentText.length + 1);
+    }
+
+    element.innerHTML = currentText;
+
+    let speed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && currentText === fullText) {
+      speed = 2000;
+      isDeleting = true;
+    } else if (isDeleting && currentText === '') {
+      isDeleting = false;
+      i = (i + 1) % roles.length;
+      speed = 500;
+    }
+
+    setTimeout(type, speed);
+  }
+
+  type();
+</script>
+</body>
+</html>
